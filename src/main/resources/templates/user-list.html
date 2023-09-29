@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"/>
+
+  <link   href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link th:href="@{/images/favicon.png}" rel="icon">
+  <link th:href="@{/images/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <link
+          th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+          rel="stylesheet"
+  />
+  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="/css/style.css" rel="stylesheet" />
+</head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <div th:replace="fragments/header :: header"></div>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <div th:replace="fragments/sidebar :: #sidebar"></div>
+    <!-- End Sidebar-->
+    <h1 class="d-none" sec:authentication="principal.username" id="currentUserName"></h1>
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Users List</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+            <li class="breadcrumb-item">User</li>
+            <li class="breadcrumb-item active">List</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card px-md-4 py-md-3">
+              <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3 mb-2">
+                <h5 class="display-6 text-nowrap text-capitalize mb-0"
+                    style="font-family: Manrope, sans-serif;font-size: 28px;font-weight: bold;">
+                  all users</h5>
+                <div class="row justify-content-end align-items-center">
+                  <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-sm btn-primary btn-icon-split" href="/admin/export-user-report-pdf">
+                      <span class="text-white-50 icon me-md-1">
+                        <i class="ri-file-pdf-2-fill text-white"></i>
+                      </span>
+                      <span class="text-white d-none d-md-inline text">
+                        Export as PDF
+                      </span>
+                    </a>
+                    <a class="btn btn-sm btn-primary btn-icon-split" href="/admin/export-user-report-xlsx">
+                      <span class="text-white-50 icon me-md-1">
+                          <i class="ri-file-excel-2-fill text-white"></i>
+                      </span>
+                      <span class="text-white d-none d-md-inline text">
+                        Export as Excel
+                    </span>
+                    </a>
+                      <div class="form-check form-switch">
+                        <input id="previewBtn" class="form-check-input" type="checkbox" role="switch">
+                        <label class="form-check-label" for="previewBtn">Preview</label>
+                      </div>
+
+<!--                    <a id="previewBtn" class="btn btn-sm btn-primary btn-icon-split">-->
+<!--                      <span class="text-white-50 icon me-md-1">-->
+<!--                          <i class="ri-file-excel-2-fill text-white"></i>-->
+<!--                      </span>-->
+<!--                      <span class="text-white d-none d-md-inline text">-->
+<!--                        Preview-->
+<!--                    </span>-->
+<!--                    </a>-->
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div th:if="${success eq 'userEnableSuccess'}"
+                     class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> User has been enabled.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div th:if="${success eq 'courseDisableSuccess'}"
+                     class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> User has been disabled.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div class="table-responsive">
+                <!-- Table with stripped rows -->
+                <table class="display" id="users">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">USERID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Username</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Roles</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                </div>
+                <!-- End Table with stripped rows -->
+              </div>
+            </div>
+            <div id="previewContainer" class="d-none">
+              <iframe id="previewIframe" style="width: 100%; height: 1000px;"></iframe>
+            </div>
+            <div id="progressContainer" class="text-center d-none">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <p class="mt-2">Generating HTML, please wait...</p>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+    <!-- End #main -->
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.spring-friendly.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+
+        $('#users').DataTable({
+          ajax: '/admin/fetch-users',
+          serverSide: true,
+          columns: [
+            {
+              data: 'id',
+              render: (data,type,row)=>{
+                return row.id;
+              }
+            },
+            { data: 'code'},
+            { data: 'name' },
+            { data: 'username' },
+            { data: 'email' },
+            {
+              data:'roles',
+                render: function(data, type, row) {
+                    let roles = '';
+                    for (let i = 0; i < data.length; i++) {
+                    roles += data[i].name + '<br>';
+                    }
+                    return roles;
+                },
+            },
+            {
+              data: 'enabled',
+              render: function(data, type, row) {
+                const bgClass = data ? ' bg-danger' : ' bg-success';
+                const status = data ? 'Disable' : 'Enable';
+                const toggleStatus = !data;
+                return '<a class="me-2" href="/user/edit/' + row.id + '"><i class="bi bi-pencil-fill edit-icon"></i></a> ' +
+                        '<a class="toggle-active" data-user-id="' + row.id + '" data-status="' + toggleStatus + '"><span class="badge' + bgClass + '">' + status + '</span></a>';
+              },
+            },
+          ],
+        }).on('click', '.toggle-active', function() {
+          const userId = $(this).data('user-id');
+          const newStatus = $(this).data('status');
+
+          $.ajax({
+            url: '/admin/toggle-user-active/' + userId + '?status=' + newStatus,
+            type: 'POST',
+            success: function(data) {
+              // Refresh the DataTable
+              $('#users').DataTable().ajax.reload();
+            },
+            error: function(xhr, textStatus, errorThrown) {
+              console.error('Error toggling user status: ' + errorThrown);
+            },
+          });
+        });
+
+        $("#previewBtn").change(function() {
+          if ($(this).is(":checked")) {
+            // Show the progress container
+            $("#progressContainer").removeClass("d-none");
+
+            $.ajax({
+              type: "GET",
+              url: "/admin/save-and-export-user-report-html",
+              responseType: "blob",
+              success: function(data) {
+                // Convert the binary data to HTML content and display it in the iframe
+                var blob = new Blob([data], { type: "text/html" });
+                var objectUrl = URL.createObjectURL(blob);
+                var $iframe = $("#previewIframe");
+
+                // Remove any existing animation classes
+                $iframe.removeClass("float-in");
+
+                // Set the iframe source and add the float-in class
+                $iframe.attr("src", objectUrl);
+                $iframe.on("load", function() {
+                  $iframe.addClass("float-in");
+
+                  // Hide the progress container when the content is loaded
+                  $("#progressContainer").addClass("d-none");
+                });
+
+                $("#previewContainer").removeClass("d-none");
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                console.error("Error exporting HTML: " + errorThrown);
+
+                // Hide the progress container on error
+                $("#progressContainer").addClass("d-none");
+              },
+            });
+          } else {
+            // Hide the preview container and remove the animation class when the checkbox is unchecked
+            $("#previewContainer").addClass("d-none");
+            $("#previewIframe").removeClass("float-in");
+          }
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e0d0731f-dbb5-40c9-8ae1-3e544faf372c">
+
+    <field name="code" class="java.lang.String"/>
+    <field name="courseName" class="java.lang.String"/>
+    <field name="gender" class="java.lang.String"/>
+    <field name="imgUrl" class="java.lang.String"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="phone" class="java.lang.String"/>
+    <field name="educationName" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="40" splitType="Stretch">
+            <staticText>
+                <reportElement x="190" y="0" width="400" height="39" uuid="bd0a7895-13fc-4574-8b57-562f01a4ee57"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Student Report]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="35" splitType="Stretch">
+            <textField pattern="MMMMM dd, yyyy">
+                <reportElement x="600" y="0" width="109" height="29" uuid="c9d94532-5440-4fc8-89f6-bb1080fded71"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="42" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="349" y="2" width="181" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="9c949c03-f93a-462e-90ce-f7142eb9b7aa"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Education]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="96" y="2" width="64" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="8e913c52-e33b-4eba-8a58-77d19c048aff"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Photo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="281" y="2" width="68" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="ea616c20-d290-462f-b300-6a6f41925d99"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Gender]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="160" y="2" width="121" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="d8ad0042-5b17-4f28-933d-ab05576efe20"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="2" width="96" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="a2fb3fc8-bf0b-4769-8c23-5e54a183f109"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Code]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="530" y="2" width="150" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="c3003fb5-e7b3-438e-aa68-4dbb2c3a2c05"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Attend courses]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="680" y="2" width="110" height="40" forecolor="#120C47" backcolor="#D9E1FF" uuid="a9b68f0d-a1be-4977-86f0-f34e715a343e"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Contact No]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="70" splitType="Stretch">
+            <textField>
+                <reportElement key="" mode="Opaque" x="0" y="0" width="96" height="70" uuid="a8e15d9f-9006-4ca6-a8cf-cfba048ce5bb"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+            </textField>
+            <image vAlign="Middle">
+                <reportElement stretchType="ContainerHeight" x="96" y="0" width="64" height="70" uuid="459d4d87-118a-4643-8524-80759f70fa29"/>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <imageExpression><![CDATA[$F{imgUrl}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement key="" mode="Opaque" x="160" y="0" width="121" height="70" uuid="24b4d524-a0f5-458c-8055-d3cfde37736a"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement key="" mode="Opaque" x="281" y="0" width="68" height="70" uuid="6b76e5d7-a9dc-4995-9416-795d8c3ce547"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gender}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement key="" mode="Opaque" x="349" y="0" width="181" height="70" uuid="6069949f-096b-42f3-93b1-1889e221ef74"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{educationName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement key="" mode="Opaque" x="530" y="0" width="150" height="70" uuid="1a9fbbf5-d922-4330-9a81-5b330151d927"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{courseName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement key="" mode="Opaque" x="680" y="0" width="110" height="70" uuid="5b07e31e-2377-4e6b-a650-8681371bf4cf"/>
+                <box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch">
+            <textField>
+                <reportElement x="651" y="0" width="90" height="20" uuid="63756b7d-c020-492f-9bcf-8c46bd68e029"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="740" y="0" width="50" height="20" uuid="ce6fde30-5f64-4de5-9dfd-7feda1d0e06c"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
